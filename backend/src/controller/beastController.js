@@ -2,7 +2,7 @@ import BeastModel from "../model/beastModel";
 
 export class BeastController {
   // GET ALL
-  async getBeast(request, response, next) {
+  async getAll(request, response, next) {
     try {
       await BeastModel.find({})
         .then(result => {
@@ -17,8 +17,8 @@ export class BeastController {
   }
 
   // GET BY PARAMS
-  async getBeastByParams(request, response, next) {
-    let params = { name: request.params.creatureName };
+  async getByParams(request, response, next) {
+    let params = { creatureName: request.params.name };
 
     try {
       await BeastModel.findOne(params)
@@ -34,7 +34,7 @@ export class BeastController {
   }
 
   // CREATE
-  async createBeast(request, response, next) {
+  async create(request, response, next) {
     let newBeast = new BeastModel(request.body);
 
     try {
@@ -52,8 +52,8 @@ export class BeastController {
   }
 
   // UPDATE BY PARAMS
-  async updateBeastByParams(request, response, next) {
-    let params = { name: request.params.creatureName };
+  async updateByParams(request, response, next) {
+    let params = { creatureName: request.params.name };
     let data = request.body;
 
     try {
@@ -69,8 +69,8 @@ export class BeastController {
     }
   }
 
-  async deleteBeastByParams(request, response, next) {
-    let params = { name: request.params.creatureName };
+  async deleteByParams(request, response, next) {
+    let params = { creatureName: request.params.name };
 
     try {
       await BeastModel.findOneAndDelete(params)

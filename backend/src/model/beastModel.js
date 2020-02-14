@@ -7,22 +7,23 @@ let BeastSchema = new Schema(
     creatureName: {
       type: String,
       required: true,
-      default: "Anonymous Creature"
+      unique: true,
+      default: "?"
     },
     geographicArea: {
       type: String,
       required: true,
-      default: "Anonymous Geographic Area"
+      default: "?"
     },
     description: {
       type: String,
       required: true,
-      default: "Anonymous Description"
+      default: "?"
     },
     behaviorToHumans: {
       type: String,
       required: true,
-      default: "Anonymous Behavior"
+      default: "?"
     },
     isMagical: {
       type: Boolean,

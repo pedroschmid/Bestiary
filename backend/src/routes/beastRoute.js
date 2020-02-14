@@ -6,13 +6,13 @@ export class BeastRoute {
   routes(app) {
     app
       .route("/beast")
-      .get(this.beastController.getBeast)
-      .post(this.beastController.createBeast);
+      .get(this.beastController.getAll)
+      .post(this.beastController.create);
 
     app
-      .route("/beast/:creatureName")
-      .get(this.beastController.getBeastByParams)
-      .put(this.beastController.updateBeastByParams)
-      .delete(this.beastController.deleteBeastByParams);
+      .route("/beast/:name")
+      .get(this.beastController.getByParams)
+      .put(this.beastController.updateByParams)
+      .delete(this.beastController.deleteByParams);
   }
 }
