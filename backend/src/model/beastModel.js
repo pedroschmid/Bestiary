@@ -4,31 +4,14 @@ let Schema = mongoose.Schema;
 
 let BeastSchema = new Schema(
   {
-    creatureName: {
+    name: {
       type: String,
-      required: true,
-      unique: true,
-      default: "?"
-    },
-    geographicArea: {
-      type: String,
-      required: true,
-      default: "?"
     },
     description: {
       type: String,
-      required: true,
-      default: "?"
     },
-    behaviorToHumans: {
+    imgURL: {
       type: String,
-      required: true,
-      default: "?"
-    },
-    isMagical: {
-      type: Boolean,
-      required: true,
-      default: false
     }
   },
   {

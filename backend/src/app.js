@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import { BeastRoute } from "./routes/beastRoute";
 
 class App {
-  PORT = process.env.PORT || 3000;
+  PORT = process.env.PORT || 8080;
   URL =
     "mongodb+srv://root:root@powertrip-zp9uk.mongodb.net/bestiary?retryWrites=true&w=majority";
   beastRoute = new BeastRoute();

@@ -6,7 +6,8 @@ export class BeastController {
     try {
       await BeastModel.find({})
         .then(result => {
-          response.json(result);
+          response.setHeader("content-type", "application/json");
+          response.send(JSON.stringify(result));
         })
         .catch(error => {
           console.error(error);
@@ -18,7 +19,7 @@ export class BeastController {
 
   // GET BY PARAMS
   async getByParams(request, response, next) {
-    let params = { creatureName: request.params.name };
+    let params = { name: request.params.name };
 
     try {
       await BeastModel.findOne(params)
@@ -53,7 +54,7 @@ export class BeastController {
 
   // UPDATE BY PARAMS
   async updateByParams(request, response, next) {
-    let params = { creatureName: request.params.name };
+    let params = { name: request.params.name };
     let data = request.body;
 
     try {
@@ -70,7 +71,7 @@ export class BeastController {
   }
 
   async deleteByParams(request, response, next) {
-    let params = { creatureName: request.params.name };
+    let params = { name: request.params.name };
 
     try {
       await BeastModel.findOneAndDelete(params)
